@@ -1,0 +1,25 @@
+.game-categories{
+    //display: flex;
+    background-color: white;
+    padding-bottom: 1rem;
+    .category{
+        font-size: 1.1rem;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        padding: 5px 9px;
+        border-radius: 20px;
+        margin: 5px 2px;
+        border: 1px solid #D2D2D2;
+        &:hover{
+            cursor: pointer; 
+        }
+        &.selected{
+            background-color: #572589;
+            color: white;
+        }
+    }
+    .p-carousel-indicators{
+        display: none;
+    }
+}

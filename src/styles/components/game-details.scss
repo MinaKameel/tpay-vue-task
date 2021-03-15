@@ -1,0 +1,65 @@
+.game-details-container{
+    display: flex;
+    flex-flow: column;
+}
+.game-details{
+    text-align: left;
+    padding-top: 2rem;
+    margin-bottom: 1rem;
+    .info{
+        padding: 1rem;
+        background-color: white;
+        margin: 1rem 0;
+        box-shadow:0 18px 0px 0 white, 0 20px 9px 0px #cdcdcd;
+        border-radius: 5px;
+        
+    }
+    .poster{
+        height: 209px;
+        //width: 777px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+    //background-position: 295px 126px;
+    }
+    .downloadNumber{
+        opacity: .5;
+        margin-bottom: 1rem;
+    }
+    .description{
+        transition: height .5s ease;
+        -moz-transition: height .5s;
+        -ms-transition: height .5s;
+        -o-transition: height .5s;
+        -webkit-transition: height .5s;
+        transition: height .5s;
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        li,p{
+            display: flex;
+        }
+        ul,p{
+            margin-bottom: 0;
+        }
+
+        &.hide-content {
+            overflow: hidden;
+            height: 9em;
+        }
+        
+        &.show-content {
+            height: auto;
+            transition: height .5s ease;
+            -moz-transition: height .5s;
+            -ms-transition: height .5s;
+            -o-transition: height .5s;
+            -webkit-transition: height .5s;
+            transition: height .5s;
+        }
+    }
+
+    
+    
+}
