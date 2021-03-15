@@ -1,9 +1,9 @@
 <template>
   <div class="header-container">
     <div class="text-start">
-      <img src="@/assets/images/Logo_4.svg" class="image-logo" />
+      <img src="@/assets/images/Logo_4.svg" class="image-logo img-fluid" />
     </div>
-    <div class="menu">
+    <div class="menu d-flex">
       <Button class="p-button-text p-button-secondary"
         ><span class="pi pi-search" font></span
       ></Button>
@@ -39,5 +39,10 @@ export default {
 }
 .image-logo {
   margin-left: -22px;
+}
+@media only screen and (max-width: 786px) {
+  .image-logo {
+    margin-left: 0;
+  }
 }
 </style>

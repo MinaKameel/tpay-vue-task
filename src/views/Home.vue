@@ -18,7 +18,7 @@
       <!--(Most Popular)-->
       <GamesList
         class="mt-4"
-        :games="popular"
+        :games="mostPopularGames"
         :title="'Most Popular'"
         :link="popularLink"
       ></GamesList>
@@ -27,12 +27,28 @@
 </template>
 
 <script>
-import http from "../services/http";
 import FeaturedGame from "../components/FeaturedGame.vue";
 import GamesList from "../components/GamesList.vue";
 import CategorySlider from "../components/CategorySlider";
+import { useStore } from "vuex";
+
 export default {
   name: "Home",
+  setup() {
+    const store = useStore();
+    store.commit("getAllGames");
+    return { store };
+  },
+  computed: {
+    recommendations() {
+      return this.store.state.filteredRecommendations.length
+        ? this.store.state.filteredRecommendations
+        : this.store.state.recommendations;
+    },
+    mostPopularGames() {
+      return this.store.state.recommendations;
+    },
+  },
   components: {
     FeaturedGame,
     GamesList,
@@ -47,44 +63,6 @@ export default {
         poster:
           "https://cdn2.unrealengine.com/kena-carousel-1248x702-1248x702-a78d12ec40a9.jpg?h=480&resize=1&w=854",
       },
-      recommendations: null,
-      popular: [
-        {
-          description: "SURF the urban wave! DODGE the oncoming trains!",
-          title: "Subway Surfers",
-          company: "SYBO Games",
-          poster:
-            "https://via.placeholder.com/300x300.png/000000/FFFFFF?text=POSTER",
-        },
-        {
-          description: "SURF the urban wave! DODGE the oncoming trains!",
-          title: "Subway Surfers",
-          company: "SYBO Games",
-          poster:
-            "https://via.placeholder.com/300x300.png/000000/FFFFFF?text=POSTER",
-        },
-        {
-          description: "SURF the urban wave! DODGE the oncoming trains!",
-          title: "Subway Surfers",
-          company: "SYBO Games",
-          poster:
-            "https://via.placeholder.com/300x300.png/000000/FFFFFF?text=POSTER",
-        },
-        {
-          description: "SURF the urban wave! DODGE the oncoming trains!",
-          title: "Subway Surfers",
-          company: "SYBO Games",
-          poster:
-            "https://via.placeholder.com/300x300.png/000000/FFFFFF?text=POSTER",
-        },
-        {
-          description: "SURF the urban wave! DODGE the oncoming trains!",
-          title: "Subway Surfers",
-          company: "SYBO Games",
-          poster:
-            "https://via.placeholder.com/300x300.png/000000/FFFFFF?text=POSTER",
-        },
-      ],
       categories: [
         { id: 1, name: "Arcade" },
         { id: 2, name: "Action" },
@@ -112,15 +90,6 @@ export default {
         { id: 25, name: "Casual" },
       ],
     };
-  },
-
-  created() {
-    http
-      .get(`/v1/19c86231`)
-      .then((response) => {
-        this.recommendations = response.data;
-      })
-      .catch();
   },
 };
 </script>

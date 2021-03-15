@@ -1,16 +1,15 @@
 import http from "./http.js";
 
 function getAllGames() {
-    return http.get("/v1/19c86231").then(result => {
-        setTimeout(() => {
-            store.dispatch({ type: actionTypes.ADD, value: 3 });
-        }, 2000);
+    return http.get("/v1/1958025f").then(result => {
     });
 }
 
 const GamesServices = {
     getAllGames: getAllGames()
 }
+
+export default GamesServices;
 
 
 

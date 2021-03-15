@@ -34,7 +34,7 @@ export default {
       })
       .catch();
     http
-      .get(`/v1/19c86231`)
+      .get(`/v1/1958025f`)
       .then((response) => {
         this.recommendations = response.data;
       })

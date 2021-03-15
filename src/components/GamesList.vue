@@ -9,22 +9,21 @@
         iconPos="right"
       />
     </div>
-    <!-- <a v-bind:href="link" class="btn btn-primary">SEE ALL</a> -->
-
     <div
       class="d-flex justify-content-center row row-cols-5 row-cols-md-4 row-cols-sm-1"
     >
       <div v-for="game in games" :key="game.id" class="game col">
         <div class="card border-0">
           <div class="game-img-container">
-            <div class="game-rate"><span class="pi pi-star"></span> 4.9</div>
+            <div class="game-rate">
+              <span class="pi pi-star"></span> {{ game.rate }}
+            </div>
             <div
               v-bind:style="{
                 backgroundImage: 'url(' + game.poster + ')',
               }"
               class="card-img-top poster"
             ></div>
-            <!-- <img v-bind:src="game.poster" class="" /> -->
           </div>
           <div class="card-body px-0">
             <p class="card-text">
